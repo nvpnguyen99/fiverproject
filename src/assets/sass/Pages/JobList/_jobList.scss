@@ -1,0 +1,40 @@
+.jobItem{
+    cursor: pointer;
+    &:hover .jobItem__mainInfo .mainInfo__jobName{
+        color: #1dbf73;
+    }
+    .jobItem__topInfo{
+        .topInfo__rightContent{
+            p{
+                font-weight: bold;
+                font-size: 14px;
+                color: #74767e;
+            }
+            h6{
+                font-weight: bold; 
+            }
+        }
+    }
+    .jobItem__mainInfo{
+        .mainInfo__jobName{
+            height: 60px;
+            font-weight: 500;
+        }
+    }
+    .card__bottomContent{
+        border-top: 1px solid #d2d2d2;
+        padding: 10px 10px 0 10px;
+
+        i, p{
+            color: #74767e;
+        }
+        p{
+            font-size: 12px;
+            font-weight: bold;
+        }
+        h4{
+            font-size: 18px;
+            padding-left: 5px;
+        }
+    }
+}

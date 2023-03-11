@@ -17,9 +17,10 @@
 
 //layouts
 @import './Layouts/HomeLayouts/header';
-
+@import './Layouts/HomeLayouts/footer';
 
 //Pages
-@import './Pages/Home/home'
-
+@import './Pages/Home/home';
+@import './Pages/JobList/jobList';
+@import './Pages/JobType/jobType';
 //Theme

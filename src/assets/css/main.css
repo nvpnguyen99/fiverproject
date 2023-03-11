@@ -1,4 +1,439 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 90%;
+  margin: auto;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  transition: all 0.5s;
+}
+header .navbar .navbar-brand {
+  width: 80px;
+  height: 40px;
+  background-image: url(https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png);
+  background-size: cover;
+  z-index: 10;
+}
+header .navbar .ant-input-group-wrapper .ant-input {
+  border: 1px solid #d5d6d8;
+}
+header .navbar .ant-input-group-wrapper .ant-btn {
+  font-weight: bold;
+  background-color: #1dbf73;
+  transition: all 0.2s;
+}
+header .navbar .ant-input-group-wrapper .ant-btn:hover {
+  background-color: #146e44;
+}
+header .navbar .ant-input-group-wrapper input {
+  border: none;
+}
+header .navbar .navbar-nav .nav-link, header .navbar .signIn a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #74767e;
+}
+header .navbar .navbar-nav .nav-link:hover, header .navbar .signIn a:hover {
+  color: #1a8754;
+}
+header .navbar .navbar-nav .active > .nav-link {
+  color: #1e1692;
+}
+header .navbar .signIn button {
+  padding: 5px 15px;
+  color: #1dbf73;
+  background: none;
+  border: 1px solid #1dbf73;
+  font-weight: bolder;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+header .navbar .signIn button:hover {
+  color: white;
+  background: #1dbf73;
+}
+
+.menuLoaiCongViec {
+  border-top: 1px solid #e4e5e7;
+  border-bottom: 2px solid #e4e5e7;
+  padding-top: 10px;
+}
+.menuLoaiCongViec .menuLoaiCongViec__list button {
+  border: none;
+  padding: 5px 10px;
+  background: none;
+}
+.menuLoaiCongViec .menuLoaiCongViec__list li {
+  border: none;
+  position: relative;
+}
+.menuLoaiCongViec .menuLoaiCongViec__list li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #1dbf73;
+  transition: all 0.2s;
+}
+.menuLoaiCongViec .menuLoaiCongViec__list li:hover::after {
+  width: 100%;
+}
+.menuLoaiCongViec .menuLoaiCongViec__list li:hover button {
+  color: #1dbf73;
+}
+.menuLoaiCongViec .menuLoaiCongViec__list span {
+  color: #62646a;
+  font-size: 18px;
+}
+.menuLoaiCongViec .menuLoaiCongViec__list .active button {
+  color: #1dbf73;
+}
+.menuLoaiCongViec .menuLoaiCongViec__list .active::after {
+  width: 100%;
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+  cursor: default;
+}
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover {
+  background-color: transparent;
+}
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item .chiTietLoai a {
+  text-decoration: none;
+  color: #62646a;
+  font-size: 16px;
+}
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item .chiTietLoai:hover a {
+  color: #1dbf73;
+}
+
+.transparentHeader {
+  background-color: transparent;
+}
+.transparentHeader .menuLoaiCongViec {
+  display: none;
+}
+.transparentHeader .header__searchBox {
+  display: none;
+}
+.transparentHeader .navbar .navbar-nav .nav-link, .transparentHeader .navbar .signIn a, .transparentHeader .navbar .navbar-nav .active > .nav-link {
+  color: white;
+}
+.transparentHeader .navbar .navbar-brand {
+  background-image: url(https://companieslogo.com/img/orig/FVRR_BIG.D-b3412798.png?t=1633676851);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+footer {
+  padding: 60px 0;
+  border-top: 1px solid #e4e5e7;
+}
+footer .footer__topContent ul li {
+  margin-bottom: 10px;
+}
+footer .footer__topContent ul li a {
+  color: #74767e;
+}
+footer .footer__topContent ul li span {
+  color: #b5b6ba;
+}
+footer .footer__bottomContent {
+  padding-top: 30px;
+  border-top: 1px solid #e4e5e7;
+}
+footer .footer__bottomContent .footer__brand p {
+  color: #b5b6ba;
+}
+footer .footer__bottomContent .footer__info .footer__contact a {
+  color: #74767e;
+  font-size: 20px;
+  padding: 6px 10px 10px 10px;
+  border-radius: 50%;
+}
+footer .footer__bottomContent .footer__info .footer__contact a:hover {
+  background-color: #dfe1e4;
+}
+footer .footer__bottomContent .footer__info .footer__buttonInfo button {
+  background: none;
+}
+footer .footer__bottomContent .footer__info .footer__buttonInfo button:hover {
+  background-color: #dfe1e4;
+}
+footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__selection {
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: #74767e;
+}
+footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person {
+  border: 1px solid #dfe1e4;
+  padding: 6px 11px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.homePage .homePage__carousel .homePage__carouselSlider {
+  height: 100vh;
+}
+.homePage .homePage__carousel .homePage__carouselSlider img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.homePage .homePage__carouselContent {
+  position: absolute;
+  top: 30vh;
+  left: 80px;
+  max-width: 42vw;
+  z-index: 1;
+}
+.homePage .homePage__carouselContent h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+}
+.homePage .homePage__carouselContent .carouselContent__searchBox .ant-input-group-wrapper, .homePage .homePage__carouselContent .carouselContent__searchBox .ant-input-wrapper {
+  height: 100%;
+}
+.homePage .homePage__carouselContent .carouselContent__searchBox .ant-input {
+  padding: 5px 20px;
+  height: 100%;
+}
+.homePage .homePage__carouselContent .carouselContent__searchBox .ant-btn {
+  height: 50px;
+  width: 100px;
+  font-weight: bold;
+  background-color: #1a8754;
+  transition: all 0.2s;
+}
+.homePage .homePage__carouselContent .carouselContent__searchBox .ant-btn:hover {
+  background-color: #146e44;
+}
+.homePage .homePage__carouselContent .carouselContent__suggest {
+  color: white;
+  font-weight: bold;
+}
+.homePage .homePage__carouselContent .carouselContent__suggest button {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0px 5px;
+  transition: all 0.2s;
+}
+.homePage .homePage__carouselContent .carouselContent__suggest button:hover {
+  background-color: white;
+  color: black;
+}
+.homePage .homePage__brand {
+  background-color: #fafafa;
+  color: #b5b6ba;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+.homePage .homePage__brand img {
+  width: 80px;
+  margin: 0 10px;
+}
+.homePage .homePage__serviceSlider {
+  padding: 60px 0;
+}
+.homePage .homePage__serviceSlider .slick-slide {
+  padding: 10px;
+}
+.homePage .homePage__serviceSlider .slick-slide img {
+  object-fit: cover;
+}
+.homePage .homePage__serviceSlider .slick-arrow::before {
+  color: #b5b6ba;
+  font-size: 28px;
+}
+.homePage .homePage__selling {
+  background-color: #effdf6;
+  padding: 80px 0;
+}
+.homePage .homePage__selling .selling__leftContent h2 {
+  font-weight: bold;
+  font-size: 36px;
+  max-width: 450px;
+}
+.homePage .homePage__selling .selling__leftContent h6 {
+  font-weight: bold;
+  font-size: 20px;
+}
+.homePage .homePage__selling .selling__leftContent .selling__iconList {
+  font-size: 28px;
+  font-weight: bold;
+  color: #7b7d85;
+  margin-right: 10px;
+}
+.homePage .homePage__selling .selling__leftContent p {
+  color: #7b7d85;
+  font-size: 14px;
+}
+.homePage .homePage__selling .selling__rightContent button {
+  margin-top: 60px;
+  outline: none;
+  border: none;
+  position: relative;
+}
+.homePage .homePage__selling .selling__rightContent button::after {
+  background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/desktop-play-button.c1196d6.png) no-repeat;
+  background-size: 80px;
+  content: "";
+  display: inline-block;
+  height: 80px;
+  left: 50%;
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 80px;
+  z-index: 1;
+}
+.homePage .homePage__testimonial {
+  padding: 60px 0;
+}
+.homePage .homePage__testimonial .slick-slide {
+  padding: 10px;
+}
+.homePage .homePage__testimonial .slick-slide img {
+  object-fit: cover;
+}
+.homePage .homePage__testimonial .slick-arrow::before {
+  color: #b5b6ba;
+  font-size: 28px;
+}
+.homePage .homePage__testimonial .testimonial__leftContent button {
+  outline: none;
+  border: none;
+  position: relative;
+}
+.homePage .homePage__testimonial .testimonial__leftContent button::after {
+  background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/desktop-play-button.c1196d6.png) no-repeat;
+  background-size: 80px;
+  content: "";
+  display: inline-block;
+  height: 80px;
+  left: 50%;
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 80px;
+  z-index: 1;
+}
+.homePage .homePage__testimonial .testimonial__rightContent {
+  padding-left: 0;
+}
+.homePage .homePage__testimonial .testimonial__rightContent .testimonial__authors h4 {
+  color: #74767e;
+  font-weight: normal;
+}
+.homePage .homePage__testimonial .testimonial__rightContent .testimonial__authors img {
+  border-left: 1px solid #c5c6c9;
+}
+.homePage .homePage__testimonial .testimonial__rightContent .testimonial__textContent i {
+  font-size: 28px;
+}
+.homePage .homePage__marketplace {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+.homePage .homePage__marketplace .marketplace__jobType {
+  margin-top: 40px;
+  cursor: pointer;
+  position: relative;
+}
+.homePage .homePage__marketplace .marketplace__jobType::after {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 26%;
+  background-color: #c5c6c9;
+  position: absolute;
+  top: 60px;
+  right: 50%;
+  transform: translateX(50%);
+}
+.homePage .homePage__marketplace .marketplace__jobType:hover::after {
+  background-color: #1dbf73;
+  width: 40%;
+}
+
+.jobItem {
+  cursor: pointer;
+}
+.jobItem:hover .jobItem__mainInfo .mainInfo__jobName {
+  color: #1dbf73;
+}
+.jobItem .jobItem__topInfo .topInfo__rightContent p {
+  font-weight: bold;
+  font-size: 14px;
+  color: #74767e;
+}
+.jobItem .jobItem__topInfo .topInfo__rightContent h6 {
+  font-weight: bold;
+}
+.jobItem .jobItem__mainInfo .mainInfo__jobName {
+  height: 60px;
+  font-weight: 500;
+}
+.jobItem .card__bottomContent {
+  border-top: 1px solid #d2d2d2;
+  padding: 10px 10px 0 10px;
+}
+.jobItem .card__bottomContent i, .jobItem .card__bottomContent p {
+  color: #74767e;
+}
+.jobItem .card__bottomContent p {
+  font-size: 12px;
+  font-weight: bold;
+}
+.jobItem .card__bottomContent h4 {
+  font-size: 18px;
+  padding-left: 5px;
+}
+
+.jobType__cardContent .jobType__detailType h6 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0 5px;
+  min-height: 46px;
+}
+.jobType__cardContent .jobType__detailType li {
+  padding: 5px;
+  border-radius: 10px;
+}
+.jobType__cardContent .jobType__detailType li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #62646a;
+  font-weight: 500;
+}
+.jobType__cardContent .jobType__detailType li:hover {
+  background-color: #f5f5f5;
 }/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,146 @@
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 2;
+    background-color: white;
+    transition: all .5s;
+    .navbar{
+        .navbar-brand{
+            width: 80px;
+            height: 40px;
+            background-image: url(https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png);
+            background-size: cover;
+            z-index: 10;
+        }
+        .ant-input-group-wrapper{
+            .ant-input{
+                border: 1px solid #d5d6d8;
+            }
+            .ant-btn{
+                font-weight: bold;
+                background-color: #1dbf73;
+                transition: all 0.2s;
+                &:hover {
+                    background-color: #146e44;
+                }
+            }
+            input{
+                border: none;
+            }
+            
+        }
+        .navbar-nav .nav-link, .signIn a{
+            font-size: 16px;
+            font-weight: bold;
+            color: #74767e;
+            &:hover{
+                color: #1a8754;
+            }
+        }
+        .navbar-nav .active>.nav-link{
+            color: #1e1692;
+        }
+        .signIn button{
+            padding: 5px 15px;
+            color: #1dbf73;
+            background: none;
+            border: 1px solid #1dbf73;
+            font-weight: bolder;
+            border-radius: 5px;
+            transition: all .2s;
+            &:hover{
+                color: white;
+                background: #1dbf73;
+            }
+        }
+    }
+    
+  
+}
+.menuLoaiCongViec{
+    border-top: 1px solid #e4e5e7;
+    border-bottom: 2px solid #e4e5e7;
+    padding-top: 10px;
+    .menuLoaiCongViec__list{
+        button{
+            border: none;
+            padding: 5px 10px;
+            background: none;
+        }
+        li{
+            border: none;
+            position: relative;
+          &::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background-color: #1dbf73;
+            transition: all .2s;
+          }
+          &:hover::after{
+            width: 100%;
+          }
+          &:hover button{
+            color: #1dbf73;
+          }
+        }
+        span{
+            color: #62646a;
+            font-size: 18px;
+        }
+        .active{
+            button{
+                color: #1dbf73;
+            }
+            &::after{
+                width: 100%;
+              }
+        }
+    }
+   
+}
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item{
+    cursor: default;
+    &:hover{
+        background-color: transparent;
+    }
+    .chiTietLoai{
+        a{
+            text-decoration: none;
+            color: #62646a;
+            font-size: 16px;
+        }
+        &:hover a{
+            color: #1dbf73;
+        }
+    }
+   
+}
+
+.transparentHeader{
+    background-color: transparent;
+    .menuLoaiCongViec{
+        display: none;
+    }
+    .header__searchBox{
+        display: none;
+    }
+    .navbar{
+        .navbar-nav .nav-link, .signIn a,  .navbar-nav .active>.nav-link{
+            color: white;
+        }
+        .navbar-brand{
+            background-image: url(https://companieslogo.com/img/orig/FVRR_BIG.D-b3412798.png?t=1633676851);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+    } 
+}
+

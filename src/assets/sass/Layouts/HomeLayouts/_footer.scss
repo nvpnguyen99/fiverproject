@@ -1,0 +1,61 @@
+footer{
+    padding: 60px 0;
+    border-top: 1px solid #e4e5e7;
+    .footer__topContent{
+        ul{
+            li{
+                margin-bottom: 10px;
+                a{
+                    color: #74767e;
+                }
+                span{
+                    color: #b5b6ba;
+                }
+            }
+        }
+    }
+    .footer__bottomContent{
+        padding-top: 30px;
+        border-top: 1px solid #e4e5e7;
+        .footer__brand{
+            p{
+                color: #b5b6ba;
+            }
+        }
+        .footer__info{
+            .footer__contact{
+                a{
+                    color: #74767e;
+                   font-size: 20px;
+                   padding: 6px 10px 10px 10px;
+                   border-radius: 50%;
+                   &:hover{
+                    background-color:#dfe1e4;
+                   }
+                }
+                
+            }
+            .footer__buttonInfo{
+                button{
+                    background: none;
+                    &:hover{
+                        background-color: #dfe1e4;
+                    }
+                }
+                .footer__selection{
+                    border: none;
+                    border-radius: 20px;
+                    padding: 5px 10px;
+                    font-weight: bold;
+                    color: #74767e;
+                }
+                .footer__person{
+                    border: 1px solid #dfe1e4;
+                    padding: 6px 11px;
+                    border-radius: 50%;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

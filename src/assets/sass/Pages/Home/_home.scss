@@ -1,0 +1,212 @@
+.homePage {
+    .homePage__carousel {
+        .homePage__carouselSlider {
+            height: 100vh;
+            img {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+            }
+        }
+    }
+    .homePage__carouselContent {
+        position: absolute;
+        top: 30vh;
+        left: 80px;
+        max-width: 42vw;
+        z-index: 1;
+        h1 {
+            color: white;
+            font-weight: bold;
+            font-size: 50px;
+        }
+
+        .carouselContent__searchBox {
+            .ant-input-group-wrapper ,.ant-input-wrapper{
+                height: 100%;
+            }
+            .ant-input {
+                padding: 5px 20px;
+                height: 100%;
+            }
+            .ant-btn {
+                height: 50px;
+                width: 100px;
+                font-weight: bold;
+                background-color: #1a8754;
+                transition: all 0.2s;
+                &:hover {
+                    background-color: #146e44;
+                }
+            }
+        }
+        .carouselContent__suggest {
+            color: white;
+            font-weight: bold;
+            button {
+                border: 1px solid white;
+                border-radius: 20px;
+                padding: 5px 10px;
+                background-color: transparent;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                margin: 0px 5px;
+                transition: all 0.2s;
+                &:hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+    }
+    .homePage__brand {
+        background-color: #fafafa;
+        color: #b5b6ba;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+        img {
+            width: 80px;
+            margin: 0 10px;
+        }
+    }
+    .homePage__serviceSlider {
+        padding: 60px 0;
+        .slick-slide {
+            padding: 10px;
+            img {
+                object-fit: cover;
+            }
+        }
+        .slick-arrow::before {
+            color: #b5b6ba;
+            font-size: 28px;
+        }
+    }
+    .homePage__selling {
+        background-color: #effdf6;
+        padding: 80px 0;
+        .selling__leftContent {
+            h2{
+                font-weight: bold;
+                font-size: 36px;
+                max-width: 450px;
+            }
+            h6 {
+                font-weight: bold;
+                font-size: 20px;
+            }
+
+            .selling__iconList {
+                font-size: 28px;
+                font-weight: bold;
+                color: #7b7d85;
+                margin-right: 10px;
+            }
+            p {
+                color: #7b7d85;
+                font-size: 14px;
+            }
+        }
+        .selling__rightContent {
+            button {
+               margin-top: 60px;
+                outline: none;
+                border: none;
+                position: relative;
+                &::after {
+                    background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/desktop-play-button.c1196d6.png)
+                        no-repeat;
+                    background-size: 80px;
+                    content: "";
+                    display: inline-block;
+                    height: 80px;
+                    left: 50%;
+                    position: absolute;
+                    top: 40%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    width: 80px;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    .homePage__testimonial {
+        padding: 60px 0;
+        .slick-slide {
+            padding: 10px;
+            img {
+                object-fit: cover;
+            }
+        }
+        .slick-arrow::before {
+            color: #b5b6ba;
+            font-size: 28px;
+        }
+        .testimonial__leftContent {
+            button {
+                outline: none;
+                border: none;
+                position: relative;
+                &::after {
+                    background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/desktop-play-button.c1196d6.png)
+                        no-repeat;
+                    background-size: 80px;
+                    content: "";
+                    display: inline-block;
+                    height: 80px;
+                    left: 50%;
+                    position: absolute;
+                    top: 40%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    width: 80px;
+                    z-index: 1;
+                }
+            }
+        }
+        .testimonial__rightContent{
+            padding-left: 0;
+            .testimonial__authors{
+                h4{
+                    color: #74767e;
+                    font-weight: normal;
+                }
+                img{
+                    border-left: 1px solid #c5c6c9;
+                }
+            }
+            .testimonial__textContent{
+                i{
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+    .homePage__marketplace{
+        padding-top: 40px;
+        padding-bottom: 60px;
+        .marketplace__jobType{
+            margin-top: 40px;
+            cursor: pointer;
+            position: relative;
+            &::after{
+                content: "";
+                display: inline-block;
+                height: 2px;
+                width: 26%;
+                background-color: #c5c6c9;
+                position: absolute;
+                top: 60px;
+                right: 50%;
+                transform: translateX(50%);
+        }
+        &:hover::after {
+            background-color: #1dbf73;
+            width: 40%;
+        }
+        }
+    }
+}

@@ -1,8 +1,11 @@
 .jobItem{
-    cursor: pointer;
-    &:hover .jobItem__mainInfo .mainInfo__jobName{
-        color: #1dbf73;
+    .jobItem__imgAndInfo{
+        cursor: pointer;
+        &:hover .jobItem__mainInfo .mainInfo__jobName{
+            color: #1dbf73;
+        }
     }
+  
     .jobItem__topInfo{
         .topInfo__rightContent{
             p{

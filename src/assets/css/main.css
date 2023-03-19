@@ -384,10 +384,10 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
   width: 40%;
 }
 
-.jobItem {
+.jobItem .jobItem__imgAndInfo {
   cursor: pointer;
 }
-.jobItem:hover .jobItem__mainInfo .mainInfo__jobName {
+.jobItem .jobItem__imgAndInfo:hover .jobItem__mainInfo .mainInfo__jobName {
   color: #1dbf73;
 }
 .jobItem .jobItem__topInfo .topInfo__rightContent p {

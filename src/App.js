@@ -5,6 +5,7 @@ import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import Home from './pages/Home/Home';
 import JobList from './pages/JobList/JobList';
 import JobType from './pages/JobType/JobType';
+import Detail from './pages/Detail/Detail';
 
 export const history = createBrowserHistory();
 
@@ -16,7 +17,9 @@ function App() {
         <HomeTemplate path="/joblist/:jobname" component={JobList}/>
         <HomeTemplate path="/joblistbytype/:typedetailid" component={JobList}/>
         <HomeTemplate path="/jobtype/:typeid" component={JobType} />
+        <HomeTemplate path="/detail/:jobid" component={Detail} />
         <HomeTemplate path="/" component={Home} />
+        
       </Switch>
     </Router>
 

@@ -7,6 +7,9 @@ export default function JobItem(props) {
 
     return (
         <div className="card jobItem" style={{ width: '18rem' }}>
+            <div onClick={()=> {
+                props.history.push(`/detail/${id}`)
+            }} className="jobItem__imgAndInfo">
             <img src={congViec.hinhAnh} className="card-img-top" alt="..." />
             <div className="card-body">
                 <div className="jobItem__topInfo mb-4 d-flex">
@@ -23,8 +26,9 @@ export default function JobItem(props) {
                     <p><span style={{color: "#ffbe5b"}}><i className="fa-solid fa-star"></i>{congViec.saoCongViec}</span><span style={{fontWeight: "500", color: "#b5b6ba"}}> ({congViec.danhGia})</span></p>
                 </div>
             </div>
+            </div>
             <div className="card__bottomContent d-flex justify-content-between">
-                <div onClick={() => {
+                <div style={{cursor: "pointer"}} onClick={() => {
                     if(!cardIconStyle.color){
                         setCardIconStyle({color: "red"})
                     } else{

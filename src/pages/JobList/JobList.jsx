@@ -5,7 +5,7 @@ import { getJobListByNameAction, getJobListByTypeAction } from '../../redux/acti
 import JobItem from './JobItem'
 
 
-export default function JobList() {
+export default function JobList(props) {
 
   let { jobname, typedetailid } = useParams()
   let { jobList } = useSelector(state => state.jobListReducer)
@@ -34,7 +34,7 @@ export default function JobList() {
   const renderJobItem = () => {
     return jobList.map((jobItem) => {
       return <div key={jobItem.id} className="col-3">
-        <JobItem jobItem={jobItem} />
+        <JobItem jobItem={jobItem} history={props.history}/>
       </div>
 
     })

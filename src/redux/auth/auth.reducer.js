@@ -1,4 +1,7 @@
 import {
+  GET_USER_INFO,
+  GET_USER_INFO_FAILED,
+  GET_USER_INFO_SUCESSFULLY,
   SIGN_IN,
   SIGN_IN_FAILED,
   SIGN_IN_SUCESSFULLY,
@@ -17,10 +20,12 @@ const auth = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case SIGN_IN:
       return update(state, { $merge: { loading: true, error: null } });
+
     case SIGN_IN_SUCESSFULLY:
       return update(state, {
         $merge: { loading: false, user: payload.user, token: payload.token },
       });
+    case GET_USER_INFO_FAILED:
     case SIGN_IN_FAILED:
       return update(state, {
         $merge: { loading: false, user: null, token: null, error: payload },
@@ -31,6 +36,15 @@ const auth = (state = INITIAL_STATE, { type, payload }) => {
           user: null,
           token: null,
         },
+      });
+
+    case GET_USER_INFO:
+      return update(state, {
+        $merge: { loading: true, error: null, token: payload.token },
+      });
+    case GET_USER_INFO_SUCESSFULLY:
+      return update(state, {
+        $merge: { loading: false, user: payload },
       });
     default:
       return state;

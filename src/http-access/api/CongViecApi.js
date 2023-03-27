@@ -100,7 +100,7 @@ export class CongViecApi {
      * @param {String} tokenCybersoft Nhập token cybersoft
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    getWithHttpInfo(tokenCybersoft) {
+    getWithHttpInfo(tokenCybersoft, token) {
       let postBody = null;
 
       // verify the required parameter 'tokenCybersoft' is set
@@ -114,7 +114,8 @@ export class CongViecApi {
       let queryParams = {
       };
       let headerParams = {
-        'tokenCybersoft': tokenCybersoft
+        'tokenCybersoft': tokenCybersoft,
+        'token': token
       };
       let formParams = {
       };
@@ -135,8 +136,8 @@ export class CongViecApi {
      * @param {String} tokenCybersoft Nhập token cybersoft
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    get(tokenCybersoft) {
-      return this.getWithHttpInfo(tokenCybersoft)
+    get(tokenCybersoft, token) {
+      return this.getWithHttpInfo(tokenCybersoft, token)
         .then(function(response_and_data) {
           return response_and_data.response.body;
         });

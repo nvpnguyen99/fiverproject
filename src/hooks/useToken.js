@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { useSelector } from 'react-redux';
 import { selectAuthToken } from '../redux/auth';
@@ -18,6 +18,12 @@ const useToken = () => {
   const removeToken = useCallback(() => {
     removeCookie('token');
   }, [removeCookie]);
+
+  useEffect(() => {
+    if (tokenState) {
+      setToken(tokenState);
+    }
+  }, [setToken, tokenState]);
 
   return {
     token: tokenState || cookies['token'],

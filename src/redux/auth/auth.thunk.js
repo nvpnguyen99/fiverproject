@@ -1,5 +1,5 @@
 import * as authActions from './auth.action';
-import { AuthApi } from '../../http-access';
+import { AuthApi, NguoiDungApi } from '../../http-access';
 import { TOKEN_CYBERSOFT } from '../../util/settings/config';
 
 export const doSignIn = (email, password) => async (dispatch) => {
@@ -15,3 +15,20 @@ export const doSignIn = (email, password) => async (dispatch) => {
     dispatch(authActions.signInFailed(error));
   }
 };
+
+export const doGetUserInfo =
+  ({ token, loginId }) =>
+  async (dispatch) => {
+    dispatch(authActions.getUserInfo({ token, loginId }));
+
+    try {
+      const res = await new NguoiDungApi().get_0(
+        loginId,
+        TOKEN_CYBERSOFT,
+        token
+      );
+      dispatch(authActions.getUserInfoSuccessfully(res.content));
+    } catch (error) {
+      dispatch(authActions.getUserInfoFailed(error));
+    }
+  };

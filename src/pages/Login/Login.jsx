@@ -3,8 +3,9 @@ import { Alert, Button, Form, Input, Typography } from 'antd';
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useToken } from '../../hooks';
+import { useToken, useUser } from '../../hooks';
 import { doSignIn, selectAuth } from '../../redux/auth';
+import { useCookies } from 'react-cookie';
 import './Login.css';
 
 export const LoginPage = React.memo(() => {
@@ -27,14 +28,15 @@ export const LoginPage = React.memo(() => {
     },
     [dispatch]
   );
-
-  const { token } = useToken();
+  const [__, setCookie] = useCookies(['loginId']);
+  const { user } = useUser(false);
 
   useEffect(() => {
-    if (token) {
+    if (user && user.id) {
+      setCookie('loginId', user.id);
       history.replace('/dashboard');
     }
-  }, [token, history]);
+  }, [user, history, setCookie]);
 
   return (
     <div className='d-flex flex-column justify-content-center align-items-center login-container'>

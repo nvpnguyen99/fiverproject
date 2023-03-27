@@ -254,7 +254,7 @@ export class NguoiDungApi {
      * @param {String} tokenCybersoft Nhập token cybersoft
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    get_0WithHttpInfo(id, tokenCybersoft) {
+    get_0WithHttpInfo(id, tokenCybersoft, token) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
@@ -274,7 +274,8 @@ export class NguoiDungApi {
       let queryParams = {
       };
       let headerParams = {
-        'tokenCybersoft': tokenCybersoft
+        'tokenCybersoft': tokenCybersoft,
+        'token': token,
       };
       let formParams = {
       };
@@ -296,8 +297,8 @@ export class NguoiDungApi {
      * @param {String} tokenCybersoft Nhập token cybersoft
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    get_0(id, tokenCybersoft) {
-      return this.get_0WithHttpInfo(id, tokenCybersoft)
+    get_0(id, tokenCybersoft, token) {
+      return this.get_0WithHttpInfo(id, tokenCybersoft, token)
         .then(function(response_and_data) {
           return response_and_data.response.body;
         });

@@ -8,7 +8,7 @@ export default function Footer() {
     <div className="container">
       <div className="footer__topContent">
         <div className="row">
-          <div className="col">
+          <div className="col-4 col-lg">
             <h6 style={{fontWeight: "bold"}}>Categories</h6>
             <ul className='mt-4'>
               <li>
@@ -43,7 +43,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col">
+          <div className="col-4 col-lg">
             <h6 style={{fontWeight: "bold"}}>About</h6>
             <ul className='mt-4'>
               <li>
@@ -70,7 +70,7 @@ export default function Footer() {
             
             </ul>
           </div>
-          <div className="col">
+          <div className="col-4 col-lg">
             <h6 style={{fontWeight: "bold"}}>Support</h6>
             <ul className='mt-4'>
               <li>
@@ -87,7 +87,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col">
+          <div className="col-4 col-lg">
             <h6 style={{fontWeight: "bold"}}>Community</h6>
             <ul className='mt-4'>
               <li>
@@ -116,7 +116,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col">
+          <div className="col-4 col-lg">
             <h6 style={{fontWeight: "bold"}}>More From Fiverr</h6>
             <ul className='mt-4'>
               <li>

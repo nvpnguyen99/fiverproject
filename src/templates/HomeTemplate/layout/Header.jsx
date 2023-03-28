@@ -105,7 +105,9 @@ export default function Header(props) {
   return (
     <header className={transparentClassHeader}>
       <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light ">
+        <nav className="navbar navbar-expand-lg navbar-light justify-content-between align-items-start">
+          <div className='d-block d-lg-flex flex-grow-1'>
+          <div className='d-flex'>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
@@ -123,6 +125,9 @@ export default function Header(props) {
               />
             </form>
           </div>
+          </div>
+     
+      
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
             <ul className="navbar-nav">
@@ -142,7 +147,11 @@ export default function Header(props) {
                 <a className="nav-link" href="#">Become a Seller</a>
               </li>
             </ul>
-            <div className="signIn">
+          
+          </div>
+          </div>
+        
+          <div className="signIn">
               <ul className='d-flex align-items-center mb-0'>
                 <li>
                   <Link className="nav-link" to="/login">Sign in</Link>
@@ -152,7 +161,6 @@ export default function Header(props) {
                 </li>
               </ul>
             </div>
-          </div>
         </nav>
 
       </div>

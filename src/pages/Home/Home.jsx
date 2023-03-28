@@ -38,7 +38,23 @@ export default function Home(props) {
     infinite: true,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 5
+    slidesToScroll: 5,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+         slidesToShow: 4,
+         slidesToScroll: 4
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+         slidesToShow: 3,
+         slidesToScroll: 3
+        }
+       }
+    ]
   };
 
   const testimonialSettings = {
@@ -155,7 +171,7 @@ export default function Home(props) {
       <section className="homePage__selling">
         <div className="container">
           <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-lg-6">
               <div className="selling__leftContent">
               <h2 className='mb-4'>A whole world of freelance talent at your fingertips</h2>
                 <ul>
@@ -197,7 +213,7 @@ export default function Home(props) {
                 </ul>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-12 col-lg-6">
               <div className="selling__rightContent">
                 <button onClick={()=>{
                     setVideoUrl("https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/vmvv3czyk2ifedefkau7")
@@ -216,7 +232,7 @@ export default function Home(props) {
         <Slider {...testimonialSettings}>
       <div>
         <div className="row">
-          <div className="col-6 testimonial__leftContent">
+          <div className="col-12 col-lg-6 testimonial__leftContent">
                <button  onClick={()=>{
                     setVideoUrl("https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/yja2ld5fnolhsixj3xxw")
                     setPlayingVideo(true)
@@ -224,7 +240,7 @@ export default function Home(props) {
                   <img src="./img/testimonial1.png" className='img-fluid' alt="" />
                 </button>
           </div>
-          <div className="col-6 testimonial__rightContent pt-5">
+          <div className="col-12 col-lg-6 testimonial__rightContent pt-5">
             <div className="testimonial__authors d-flex align-items-center mb-2">
               <h4>Kay Kim, Co-Founder </h4>
               <img src="./img/rooted-logo-x2.321d79d.png" className='ml-3 pb-1' width="90px" alt="" />
@@ -237,7 +253,7 @@ export default function Home(props) {
       </div>
       <div>
       <div className="row">
-          <div className="col-6 testimonial__leftContent">
+          <div className="col-12 col-lg-6 testimonial__leftContent">
           <button  onClick={()=>{
                     setVideoUrl("https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/plfa6gdjihpdvr10rchl")
                     setPlayingVideo(true)
@@ -245,7 +261,7 @@ export default function Home(props) {
                   <img src="./img/testimonial2.png" className='img-fluid' alt="" />
                 </button>
           </div>
-          <div className="col-6 testimonial__rightContent pt-5">
+          <div className="col-12 col-lg-6 testimonial__rightContent pt-5">
             <div className="testimonial__authors d-flex align-items-center mb-2">
               <h4>Caitlin Tormey, Chief Commercial Officer </h4>
               <img src="./img/naadam-logo-x2.0a3b198.png" className='ml-3 pb-1' width="90px" alt="" />
@@ -258,7 +274,7 @@ export default function Home(props) {
       </div>
       <div>
       <div className="row">
-          <div className="col-6 testimonial__leftContent">
+          <div className="col-12 col-lg-6 testimonial__leftContent">
           <button  onClick={()=>{
                     setVideoUrl("https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/rb8jtakrisiz0xtsffwi")
                     setPlayingVideo(true)
@@ -266,7 +282,7 @@ export default function Home(props) {
                   <img src="./img/testimonial3.png" className='img-fluid' alt="" />
                 </button>
           </div>
-          <div className="col-6 testimonial__rightContent pt-5">
+          <div className="col-12 col-lg-6 testimonial__rightContent pt-5">
             <div className="testimonial__authors d-flex align-items-center mb-2">
               <h4>Brighid Gannon (DNP, PMHNP-BC), Co-Founder</h4>
               <img src="./img/lavender-logo-x2.89c5e2e.png" className='ml-3 pb-1' width="90px" alt="" />
@@ -279,7 +295,7 @@ export default function Home(props) {
       </div>
       <div>
       <div className="row">
-          <div className="col-6 testimonial__leftContent">
+          <div className="col-12 col-lg-6 testimonial__leftContent">
           <button  onClick={()=>{
                     setVideoUrl("https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/bsncmkwya3nectkensun")
                     setPlayingVideo(true)
@@ -287,7 +303,7 @@ export default function Home(props) {
                   <img src="./img/testimonial4.png" className='img-fluid' alt="" />
                 </button>
           </div>
-          <div className="col-6 testimonial__rightContent pt-5">
+          <div className="col-12 col-lg-6 testimonial__rightContent pt-5">
             <div className="testimonial__authors d-flex align-items-center mb-2">
               <h4>Tim and Dan Joo, Co-Founders</h4>
               <img src="./img/haerfest-logo-x2.03fa5c5.png" className='ml-3 pb-1' width="90px" alt="" />
@@ -305,39 +321,39 @@ export default function Home(props) {
         <div className="container">
         <h2>Explore the marketplace</h2>
         <div className="row justify-content-center">
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/business.bbdf319.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/data.718910f.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/graphics-design.d32a2f8.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/lifestyle.745b575.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/music-audio.320af20.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/online-marketing.74e221b.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/programming.9362366.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/video-animation.f0d9d71.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>
-          <div className="col-2 text-center marketplace__jobType">
+          <div className="col-4 col-lg-2 text-center marketplace__jobType">
             <img src="./img/writing-translation.32ebe2e.svg" width="45px" height="66px" alt="" />
             <h6>Graphics & Design</h6>
           </div>

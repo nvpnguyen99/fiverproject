@@ -359,7 +359,7 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
   z-index: 1;
 }
 .homePage .homePage__testimonial .testimonial__rightContent {
-  padding-left: 0;
+  padding-left: 5px;
 }
 .homePage .homePage__testimonial .testimonial__rightContent .testimonial__authors h4 {
   color: #74767e;
@@ -396,6 +396,11 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
   width: 40%;
 }
 
+@media screen and (max-width: 992px) {
+  .homePage .homePage__carouselContent {
+    max-width: 70vw;
+  }
+}
 .jobItem .jobItem__imgAndInfo {
   cursor: pointer;
 }

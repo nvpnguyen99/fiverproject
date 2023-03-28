@@ -168,7 +168,7 @@
             }
         }
         .testimonial__rightContent{
-            padding-left: 0;
+            padding-left: 5px;
             .testimonial__authors{
                 h4{
                     color: #74767e;
@@ -208,5 +208,11 @@
             width: 40%;
         }
         }
+    }
+}
+
+@include responsive("large"){
+    .homePage .homePage__carouselContent{
+        max-width: 70vw;
     }
 }

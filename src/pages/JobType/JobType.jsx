@@ -8,7 +8,7 @@ export default function JobType() {
     let [loaiCongViec, setLoaiCongViec] = useState({})
 
     useEffect(() => {
-        console.log(typeid)
+        // console.log(typeid)
         getJobDetailType()
     }, [typeid])
 
@@ -49,7 +49,7 @@ export default function JobType() {
          })
     }
 
-    console.log(loaiCongViec)
+    console.log(loaiCongViec.tenLoaiCongViec)
     return (
         <div style={{ paddingTop: "150px", paddingBottom: "60px" }}>
             <div className="container">

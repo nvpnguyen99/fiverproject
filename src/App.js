@@ -10,6 +10,8 @@ import JobType from './pages/JobType/JobType';
 import Detail from './pages/Detail/Detail';
 import LoginPage from './pages/Login';
 import { ManageJob, ManageJobType } from './pages/dashboard';
+import Register from './pages/Register/Register';
+import Profile from './pages/Profile/Profile';
 
 export const history = createBrowserHistory();
 
@@ -26,7 +28,9 @@ function App() {
           />
           <HomeTemplate path='/jobtype/:typeid' component={JobType} />
           <HomeTemplate path='/detail/:jobid' component={Detail} />
-          <Route path='/login' component={LoginPage} />
+          <HomeTemplate path='/register' component={Register} />
+          <HomeTemplate path='/profile' component={Profile} />
+          <HomeTemplate path='/login' component={LoginPage} />
           <Route
             path='/dashboard'
             render={({ match: { path } }) => (

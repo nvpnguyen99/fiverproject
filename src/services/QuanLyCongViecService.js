@@ -13,6 +13,9 @@ export class QuanLyCongViecService extends BaseService{
     layDanhSachCongViecTheoLoai = (maChiTietLoai) => {
         return this.get(`/api/cong-viec/lay-cong-viec-theo-chi-tiet-loai/${maChiTietLoai}`)
     }
+    layCongViecChiTiet = (jobDetail) =>{
+        return this.get(`/api/cong-viec/lay-cong-viec-chi-tiet/${jobDetail}`)
+    }
 }
 
 export const quanLyCongViecService = new QuanLyCongViecService();

@@ -15,7 +15,7 @@ export default function Header(props) {
   let [isScrollY, setIsScrollY] = useState(false)
   let [activeType, setActiveType] = useState(0)
   let [transparentClassHeader, setTransparentClassHeader] = useState("")
-  let {isHomePage} = useSelector(state => state.homeReducer)
+  let { isHomePage } = useSelector(state => state.homeReducer)
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,27 +29,27 @@ export default function Header(props) {
       })
   }, [])
 
-  useEffect(() => { 
-   if(isHomePage && !isScrollY){
-        setTransparentClassHeader("transparentHeader")
-   } else{
-    setTransparentClassHeader("")
-   }
+  useEffect(() => {
+    if (isHomePage && !isScrollY) {
+      setTransparentClassHeader("transparentHeader")
+    } else {
+      setTransparentClassHeader("")
+    }
 
-   },[isScrollY,isHomePage])
-  
+  }, [isScrollY, isHomePage])
+
   const listenScrollEvent = (e) => {
-  if(window.scrollY > 0){
-   setIsScrollY(true)
-  } else{
-   setIsScrollY(false)
-  }
+    if (window.scrollY > 0) {
+      setIsScrollY(true)
+    } else {
+      setIsScrollY(false)
+    }
   }
 
   const renderMenuLoaiCongViec = () => {
     return menuLoaiCongViec.map((loaiCongViec) => {
       let cssActiveClass = ""
-      if(loaiCongViec.id == activeType){
+      if (loaiCongViec.id == activeType) {
         cssActiveClass = "active"
       }
       let items = renderNhomLoai(loaiCongViec.dsNhomChiTietLoai)
@@ -60,8 +60,9 @@ export default function Header(props) {
           }}
           placement="bottom"
         >
-          <button onClick={()=>{
+          <button onClick={() => {
             history.push(`/jobtype/${loaiCongViec.id}`)
+            // console.log(loaiCongViec.id)
             setActiveType(loaiCongViec.id)
           }}>{loaiCongViec.tenLoaiCongViec}</button>
         </Dropdown>
@@ -95,11 +96,11 @@ export default function Header(props) {
     })
   }
 
-  const onSearch = (value) =>  {
+  const onSearch = (value) => {
     history.push(`/joblist/${value}`)
   }
 
- 
+
 
   return (
     <header className={transparentClassHeader}>
@@ -112,15 +113,15 @@ export default function Header(props) {
             {/* <img src="https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png" alt="" width="80px" /> */}
           </NavLink>
           <div className="header__searchBox">
-          <form className="form-inline my-2 my-lg-0">
-            <Search
-              placeholder='Try "building mobile app"'
-              enterButton="Search"
-              size="large"
-              onSearch={onSearch}
+            <form className="form-inline my-2 my-lg-0">
+              <Search
+                placeholder='Try "building mobile app"'
+                enterButton="Search"
+                size="large"
+                onSearch={onSearch}
 
-            />
-          </form>
+              />
+            </form>
           </div>
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
@@ -147,7 +148,7 @@ export default function Header(props) {
                   <Link className="nav-link" to="/login">Sign in</Link>
                 </li>
                 <li>
-                  <button>Join</button>
+                  <Link className="nav-reg" to="/register">Join</Link>
                 </li>
               </ul>
             </div>

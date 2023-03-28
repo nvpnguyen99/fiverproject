@@ -21,23 +21,34 @@ const DashBoard = React.memo(({ children }) => {
           minHeight: '100vh',
         }}
       >
-        <Sider collapsible collapsed={collapsed} trigger={null}>
+        <Sider
+          style={{
+            overflow: 'auto',
+            height: '100vh',
+            position: 'fixed',
+            left: 0,
+            top: 0,
+            bottom: 0,
+          }}
+          collapsible
+          collapsed={collapsed}
+          trigger={null}
+        >
           <div
             style={{
               height: 32,
               margin: 16,
               background: 'rgba(255, 255, 255, 0.2)',
             }}
-          >
-            <Menu />
-          </div>
+          />
+          <Menu />
         </Sider>
-        <Layout className='site-layout'>
+        <Layout className='site-layout' style={{ marginLeft: 200 }}>
           <Header
             style={{
               padding: 0,
               background: colorBgContainer,
-              position: 'unset',
+              position: 'sticky',
             }}
           >
             <div>

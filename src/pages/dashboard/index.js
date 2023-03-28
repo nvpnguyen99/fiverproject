@@ -1,3 +1,4 @@
 import ManageJob from './ManageJob';
+import ManageJobType from './ManageJobType';
 
-export { ManageJob };
+export { ManageJob, ManageJobType };

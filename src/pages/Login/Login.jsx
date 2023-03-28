@@ -17,6 +17,11 @@ export const LoginPage = React.memo(() => {
 
   const { loading, error } = useSelector(selectAuth);
 
+  const redirectPath = history.location.search
+    ? new URLSearchParams(history.location.search).get('redirectTo')
+    : '/dashboard';
+
+  console.log(redirectPath);
   const signIn = useCallback(
     ({ email, password }) => {
       dispatch(
@@ -34,9 +39,9 @@ export const LoginPage = React.memo(() => {
   useEffect(() => {
     if (user && user.id) {
       setCookie('loginId', user.id);
-      history.replace('/dashboard');
+      history.replace(redirectPath);
     }
-  }, [user, history, setCookie]);
+  }, [user, history, redirectPath, setCookie]);
 
   return (
     <div className='d-flex flex-column justify-content-center align-items-center login-container'>

@@ -5,6 +5,10 @@ import useCreateJob from './useCreateJob';
 import useUpdateJob from './useUpdateJob';
 import useUploadJobImage from './useUploadJobImage';
 import useDeleteJob from './useDeleteJob';
+import useJobTypes from './useJobTypes';
+import useCreateJobType from './useCreateJobType';
+import useUpdateJobType from './useUpdateJobType';
+import useDeleteJobType from './useDeleteJobType';
 
 export {
   useToken,
@@ -14,4 +18,8 @@ export {
   useUpdateJob,
   useUploadJobImage,
   useDeleteJob,
+  useJobTypes,
+  useCreateJobType,
+  useUpdateJobType,
+  useDeleteJobType
 };

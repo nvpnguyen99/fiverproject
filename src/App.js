@@ -9,7 +9,7 @@ import JobList from './pages/JobList/JobList';
 import JobType from './pages/JobType/JobType';
 import Detail from './pages/Detail/Detail';
 import LoginPage from './pages/Login';
-import { ManageJob } from './pages/dashboard';
+import { ManageJob, ManageJobType } from './pages/dashboard';
 
 export const history = createBrowserHistory();
 
@@ -27,14 +27,18 @@ function App() {
           <HomeTemplate path='/jobtype/:typeid' component={JobType} />
           <HomeTemplate path='/detail/:jobid' component={Detail} />
           <Route path='/login' component={LoginPage} />
-          <Route path='/dashboard'>
-            <DashBoard>
-              <Route path='/dashboard/jobs' component={ManageJob} />
-              <Route exact path='/dashboard'>
-                <h1>DashBoard</h1>
-              </Route>
-            </DashBoard>
-          </Route>
+          <Route
+            path='/dashboard'
+            render={({ match: { path } }) => (
+              <DashBoard>
+                <Route path={`${path}/jobs`} component={ManageJob} />
+                <Route path={`${path}/job-types`} component={ManageJobType} />
+                <Route exact path={path}>
+                  <h1>DashBoard</h1>
+                </Route>
+              </DashBoard>
+            )}
+          />
           <HomeTemplate path='/' component={Home} />
         </Switch>
       </Router>

@@ -1,6 +1,6 @@
 import { Button, Image, Modal, Space, Table } from 'antd';
 import React, { useCallback, useMemo, useRef } from 'react';
-import { Route, useHistory } from 'react-router-dom';
+import { Route, useHistory, useRouteMatch } from 'react-router-dom';
 import { useJobs } from '../../../hooks';
 import JobDetailForm from './JobDetailForm';
 import JobListActions from './JobListActions';
@@ -40,24 +40,26 @@ const dataColumnDefine = [
 ];
 
 const ManageJob = React.memo(() => {
-  const { data: jobs, refetch: refetchJobs } = useJobs();
+  const { data: jobs, refetch: refetchJobs, isLoading } = useJobs();
 
   const history = useHistory();
 
+  const { url, path } = useRouteMatch();
+
   const dataSource = useMemo(
-    () => jobs?.map((job) => ({ ...job, key: job.id })).reverse(),
+    () => (jobs || []).map((job) => ({ ...job, key: job.id })).reverse(),
     [jobs]
   );
 
   const addOrEditFormRef = useRef(null);
 
   const addNewJob = useCallback(() => {
-    history.push('/dashboard/jobs/create');
-  }, [history]);
+    history.push(`${url}/create`);
+  }, [history, url]);
 
   const onCancelAddNewJob = useCallback(() => {
-    history.push('/dashboard/jobs');
-  }, [history]);
+    history.push(url);
+  }, [history, url]);
 
   const handleOk = useCallback(async () => {
     const formInstance = addOrEditFormRef.current;
@@ -106,15 +108,20 @@ const ManageJob = React.memo(() => {
         <Button onClick={addNewJob} type='primary' ghost>
           Add new Job
         </Button>
-        <Table columns={columnDefinition} dataSource={dataSource} />
+        <Table
+          loading={isLoading}
+          columns={columnDefinition}
+          dataSource={dataSource}
+          pagination={dataSource.length > 10}
+        />
       </Space>
 
       <Route
-        path={['/dashboard/jobs/create', '/dashboard/jobs/edit/:id']}
+        path={[`${path}/create`, `${path}/edit/:id`]}
         render={({ match }) => {
-          const jobId = match?.params?.id;
+          const jobId = match.params.id;
 
-          const job = dataSource?.find(
+          const job = dataSource.find(
             ({ id }) => id === Number(match.params.id)
           );
           return (

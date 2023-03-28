@@ -1,61 +1,54 @@
 import { Button, message, Modal, Space } from 'antd';
-import React, { useCallback, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import { useDeleteJob } from '../../../../hooks';
 
 const JobListActions = React.memo(({ jobId, onDeleteSuccess }) => {
   const history = useHistory();
 
-  const [isConfirmDel, setConfirmDel] = useState(false);
+  const { url } = useRouteMatch();
 
   const onEdit = useCallback(() => {
-    history.push(`/dashboard/jobs/edit/${jobId}`);
-  }, [history, jobId]);
-
-  const openConfirmDel = useCallback(() => {
-    setConfirmDel(true);
-  }, []);
-
-  const closeConfirmDel = useCallback(() => {
-    setConfirmDel(false);
-  }, []);
+    history.push(`${url}/edit/${jobId}`);
+  }, [history, jobId, url]);
 
   const { deleteJob: callDeleteJob } = useDeleteJob({
     onSuccess: () => {
       message.success('Delete this job Successfully!');
       onDeleteSuccess?.();
-      closeConfirmDel();
     },
     onError: () => {
       message.error('Delete this job Failed!');
     },
   });
 
-  const deleteJob = useCallback(() => {
-    callDeleteJob({ id: jobId });
-  }, [callDeleteJob, jobId]);
+  const deleteJob = useCallback(
+    (onSuccess) => {
+      callDeleteJob({ id: jobId }, { onSuccess });
+    },
+    [callDeleteJob, jobId]
+  );
+
+  const openConfirmDel = useCallback(() => {
+    Modal.confirm({
+      title: 'Confirm',
+      content: 'Are you sure delete this job?',
+      centered: true,
+      onOk: (e) => {
+        deleteJob(e);
+      },
+    });
+  }, [deleteJob]);
 
   return (
-    <>
-      <Space>
-        <Button onClick={onEdit} type='primary'>
-          Edit
-        </Button>
-        <Button onClick={openConfirmDel} danger>
-          Delete
-        </Button>
-      </Space>
-      <Modal
-        centered
-        maskClosable={false}
-        title='Warning'
-        onCancel={closeConfirmDel}
-        onOk={deleteJob}
-        open={isConfirmDel}
-      >
-        Are you sure delete this job?
-      </Modal>
-    </>
+    <Space>
+      <Button onClick={onEdit} type='primary'>
+        Edit
+      </Button>
+      <Button onClick={openConfirmDel} danger>
+        Delete
+      </Button>
+    </Space>
   );
 });
 

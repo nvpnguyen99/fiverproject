@@ -1,7 +1,7 @@
 import { HomeOutlined, ScheduleOutlined } from '@ant-design/icons';
 import { Menu as AntdMenu } from 'antd';
 import React, { useCallback, useEffect } from 'react';
-import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const menuDefinition = [
   {
@@ -13,6 +13,11 @@ const menuDefinition = [
     key: '/dashboard/jobs',
     icon: <ScheduleOutlined />,
     label: 'Manage Job',
+  },
+  {
+    key: '/dashboard/job-types',
+    icon: <ScheduleOutlined />,
+    label: 'Manage Job Type',
   },
 ];
 

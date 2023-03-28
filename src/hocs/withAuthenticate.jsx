@@ -1,9 +1,10 @@
 import { Alert, Spin } from 'antd';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import { useUser } from '../hooks';
 
 const withAuthenticate = (Component) => (props) => {
   const { user, loading, isFetching, error } = useUser(true);
+  const history = useHistory();
 
   if (isFetching || loading) {
     return (
@@ -25,7 +26,16 @@ const withAuthenticate = (Component) => (props) => {
   }
 
   if (!user) {
-    return <Redirect to='/login' />;
+    return (
+      <Redirect
+        to={{
+          pathname: '/login',
+          search: new URLSearchParams({
+            redirectTo: history.createHref(history.location),
+          }).toString(),
+        }}
+      />
+    );
   }
 
   return <Component {...props} />;

@@ -144,7 +144,7 @@ export default function Header(props) {
             <div className="signIn">
               <ul className='d-flex align-items-center mb-0'>
                 <li>
-                  <a className="nav-link" href="#">Sign in</a>
+                  <Link className="nav-link" to="/login">Sign in</Link>
                 </li>
                 <li>
                   <button>Join</button>

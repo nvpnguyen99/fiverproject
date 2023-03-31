@@ -12,6 +12,7 @@ import LoginPage from './pages/Login';
 import { ManageJob, ManageJobType } from './pages/dashboard';
 import Register from './pages/Register/Register';
 import Profile from './pages/Profile/Profile';
+import SignIn from './pages/SignIn/SignIn';
 
 export const history = createBrowserHistory();
 
@@ -29,6 +30,7 @@ function App() {
           <HomeTemplate path='/jobtype/:typeid' component={JobType} />
           <HomeTemplate path='/detail/:jobid' component={Detail} />
           <HomeTemplate path='/register' component={Register} />
+          <HomeTemplate path='/signin' component={SignIn} />
           <HomeTemplate path='/profile' component={Profile} />
           <HomeTemplate path='/login' component={LoginPage} />
           <Route

@@ -11,7 +11,7 @@ export class BaseService {
            method:'PUT',
            data:model,
            headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
+            'Authorization': localStorage.getItem(ACCESS_TOKEN),
             'TokenCybersoft': TOKEN_CYBERSOFT
         } 
        })
@@ -24,7 +24,7 @@ export class BaseService {
            method:'POST',
            data:model,
            headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
+            'Authorization': localStorage.getItem(ACCESS_TOKEN),
             'TokenCybersoft': TOKEN_CYBERSOFT
         } 
        })
@@ -47,7 +47,7 @@ export class BaseService {
            url:`${DOMAIN}${url}`,
            method:'DELETE',
            headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
+            'Authorization': localStorage.getItem(ACCESS_TOKEN),
             'TokenCybersoft': TOKEN_CYBERSOFT
         } 
        })

@@ -6,6 +6,9 @@ import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { history } from '../../../App';
 import { useDispatch } from 'react-redux';
+import { USER_FIVER } from '../../../util/settings/config';
+import { userReducer } from '../../../redux/reducers/userReducer';
+import { signOutAction } from '../../../redux/actions/userAction';
 const { Search } = Input;
 
 
@@ -16,6 +19,7 @@ export default function Header(props) {
   let [activeType, setActiveType] = useState(0)
   let [transparentClassHeader, setTransparentClassHeader] = useState("")
   let { isHomePage } = useSelector(state => state.homeReducer)
+  let {userLogin} = useSelector(state => state.userReducer)
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -96,6 +100,30 @@ export default function Header(props) {
     })
   }
 
+  const renderUserName = () => {
+    if (userLogin) {
+      return <>
+        <li>
+          <Link className="nav-link" to="/profile">{userLogin.name}</Link>
+        </li>
+        <li>
+          <Link className="nav-link" to="/signin"><span onClick={() => {
+            let action = signOutAction();
+            dispatch(action);
+          }} className='w-100 h-100'>Sign out</span></Link>
+        </li>
+      </>
+    }
+    return <>
+      <li>
+        <Link className="nav-link" to="/signin">Sign in</Link>
+      </li>
+      <li>
+        <Link className="nav-reg" to="/register">Join</Link>
+      </li>
+    </>
+  }
+
   const onSearch = (value) => {
     history.push(`/joblist/${value}`)
   }
@@ -107,60 +135,55 @@ export default function Header(props) {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light justify-content-between align-items-start">
           <div className='d-block d-lg-flex flex-grow-1'>
-          <div className='d-flex'>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
-          </button>
-          <NavLink className="navbar-brand" to="/">
-            {/* <img src="https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png" alt="" width="80px" /> */}
-          </NavLink>
-          <div className="header__searchBox">
-            <form className="form-inline my-2 my-lg-0">
-              <Search
-                placeholder='Try "building mobile app"'
-                enterButton="Search"
-                size="large"
-                onSearch={onSearch}
+            <div className='d-flex'>
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon" />
+              </button>
+              <NavLink className="navbar-brand" to="/">
+                {/* <img src="https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png" alt="" width="80px" /> */}
+              </NavLink>
+              <div className="header__searchBox">
+                <form className="form-inline my-2 my-lg-0">
+                  <Search
+                    placeholder='Try "building mobile app"'
+                    enterButton="Search"
+                    size="large"
+                    onSearch={onSearch}
 
-              />
-            </form>
-          </div>
-          </div>
-     
-      
-          <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                  />
+                </form>
+              </div>
+            </div>
 
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link" href="#">Fiver Business <span className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Explore</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link d-flex align-items-center" href="#"><GlobalOutlined className='mr-1' /> <span>English</span> </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">US$ USD</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Become a Seller</a>
-              </li>
-            </ul>
-          
-          </div>
-          </div>
-        
-          <div className="signIn">
-              <ul className='d-flex align-items-center mb-0'>
-                <li>
-                  <Link className="nav-link" to="/login">Sign in</Link>
+
+            <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <a className="nav-link" href="#">Fiver Business <span className="sr-only">(current)</span></a>
                 </li>
-                <li>
-                  <Link className="nav-reg" to="/register">Join</Link>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Explore</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link d-flex align-items-center" href="#"><GlobalOutlined className='mr-1' /> <span>English</span> </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">US$ USD</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Become a Seller</a>
                 </li>
               </ul>
+
             </div>
+          </div>
+
+          <div className="signIn">
+            <ul className='d-flex align-items-center mb-0'>
+              {renderUserName()}
+            </ul>
+          </div>
         </nav>
 
       </div>

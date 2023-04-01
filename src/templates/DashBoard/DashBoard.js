@@ -111,4 +111,5 @@ const DashBoard = React.memo(({ children }) => {
   
 });
 
-export default withAuthenticate(DashBoard);
+// export default withAuthenticate(DashBoard);
+export default DashBoard;

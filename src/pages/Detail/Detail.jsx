@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { FieldTimeOutlined, ReloadOutlined, CheckOutlined } from '@ant-design/icons';
-import { Rate, Progress, Space,Input } from 'antd';
+import { Rate, Progress, Space, Input } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { getJobDetailAction } from '../../redux/actions/jobListAction';
 export default function Detail() {
@@ -136,9 +136,41 @@ export default function Detail() {
               </div>
             </div>
             <Space direction="vertical">
-            <Search placeholder="Search reviews" style={{ width: 200 }} />
+              <Search placeholder="Search reviews" style={{ width: 200 }} />
             </Space>
             <div className="border-bottom"></div>
+            <div className="seller d-flex">
+              <div className="seller-img mr-2">
+                <img src="../../img/avt.jpg" alt="" className='img-fluid rounded-circle mr-2' />
+              </div>
+              <div className="seller-info">
+                <div className='d-flex'>
+                  <h5>idarethejeff</h5>
+                  <p style={{ color: "#ffbe5b", fontWeight: '700', marginLeft: "5px" }}> <span><i class="fa-solid fa-star"></i></span> 2</p>
+                </div>
+                <div className='d-flex'>
+                  <img style={{ width: '20px', height: '20px', marginRight: '10px' }} src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1ed.png" alt="" />
+                  <p>Switzerland</p>
+                </div>
+                <p style={{ color: "#404145", fontSize: "16px" }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus qui voluptatem nemo! Sit aliquam optio incidunt temporibus, eligendi porro ducimus nulla modi, ut deserunt repudiandae.</p>
+                <p style={{ color: "#404145", fontWeight: "500" }}>Helpful? <a style={{ cursor: "pointer" }}><span><i class="fa-regular fa-thumbs-up"></i></span> Yes</a><a style={{ cursor: "pointer" }}> <span><i class="fa-regular fa-thumbs-down"></i></span> No</a></p>
+                <div className="border-bottom"></div>
+              </div>
+            </div>
+
+            <div className="comment">
+              <div className="comment-title d-flex justify-content-between mb-2">
+                <h4>Leave some comments</h4>
+                <h4><Rate tooltips={desc} onChange={setValue} value={value} /> <span>Rating</span></h4>
+              </div>
+              <form>
+                <textarea className="comment-form"  required id cols={100} rows={5} defaultValue={""} />
+                <p className="comment-submit mt-2">Comment</p>
+              </form>
+
+            </div>
+
+
           </div>
           <div className="col-4">
             <div className="container p-4 checkout">

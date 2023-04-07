@@ -11,21 +11,22 @@ export class BaseService {
            method:'PUT',
            data:model,
            headers: {
-            'Authorization': localStorage.getItem(ACCESS_TOKEN),
-            'TokenCybersoft': TOKEN_CYBERSOFT
+            'token': localStorage.getItem(ACCESS_TOKEN),
+            'tokenCybersoft': TOKEN_CYBERSOFT
         } 
        })
    }
 
 
    post = (url,model) => {
+    console.log(localStorage.getItem(ACCESS_TOKEN));
        return axios({
            url:`${DOMAIN}${url}`,
            method:'POST',
            data:model,
            headers: {
-            'Authorization': localStorage.getItem(ACCESS_TOKEN),
-            'TokenCybersoft': TOKEN_CYBERSOFT
+            'token': localStorage.getItem(ACCESS_TOKEN),
+            'tokenCybersoft': TOKEN_CYBERSOFT
         } 
        })
    }
@@ -36,7 +37,8 @@ export class BaseService {
            url:`${DOMAIN}${url}`,
            method:'GET',
            headers: {
-            'TokenCybersoft': TOKEN_CYBERSOFT
+            'token': localStorage.getItem(ACCESS_TOKEN),
+            'tokenCybersoft': TOKEN_CYBERSOFT
         } 
        })
    }
@@ -47,8 +49,8 @@ export class BaseService {
            url:`${DOMAIN}${url}`,
            method:'DELETE',
            headers: {
-            'Authorization': localStorage.getItem(ACCESS_TOKEN),
-            'TokenCybersoft': TOKEN_CYBERSOFT
+            'token': localStorage.getItem(ACCESS_TOKEN),
+            'tokenCybersoft': TOKEN_CYBERSOFT
         } 
        })
    }

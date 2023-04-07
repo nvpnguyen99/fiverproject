@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { UserOutlined, MailOutlined, LockOutlined, PhoneOutlined, FieldTimeOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -8,6 +8,9 @@ import { signInAction } from '../../redux/actions/userAction';
 export default function SignIn() {
 
     let dispatch = useDispatch();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const formik = useFormik({
         initialValues: {

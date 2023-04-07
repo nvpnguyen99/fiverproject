@@ -55,8 +55,19 @@ header{
                 background: #1dbf73;
             }
         }
-    }
     
+    }
+    .countJobs{
+        text-align: center;
+        background-color: #ff6861;
+        font-size: 14px;
+        color: white;
+        border-radius: 50%;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+    }
   
 }
 .menuLoaiCongViec{
@@ -140,6 +151,9 @@ header{
             background-repeat: no-repeat;
             background-position: center;
 
+        }
+        .countJobs{
+           display: none;
         }
     } 
 }

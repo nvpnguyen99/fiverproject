@@ -4,13 +4,18 @@ import { FieldTimeOutlined, ReloadOutlined, CheckOutlined } from '@ant-design/ic
 import { Rate, Progress, Space, Input } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { getJobDetailAction } from '../../redux/actions/jobListAction';
-export default function Detail() {
+import { quanLyThueCongViecService } from '../../services/QuanLyThueCongViecService';
+import toast from 'react-hot-toast';
+import { getHiredJobsListAction } from '../../redux/actions/hireJobAction';
+
+export default function Detail(props) {
 
   const { Search } = Input;
   const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
   const [value, setValue] = useState(3);
 
   let { jobDetail } = useSelector(state => state.jobListReducer)
+  let { userLogin } = useSelector(state => state.userReducer)
   let { jobid } = useParams();
   let dispatch = useDispatch();
 
@@ -20,6 +25,27 @@ export default function Detail() {
     getJobDetail()
   }, [])
 
+  const hireJob = () => {
+    let date = new Date();
+    let ngayThue = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+    let model = {
+      id: 0,
+      maCongViec: jobid,
+      maNguoiThue: userLogin.id,
+      ngayThue: ngayThue,
+      hoanThanh: false
+    }
+
+    let promise = quanLyThueCongViecService.thueCongViec(model)
+    promise.then((result) => {
+      toast.success('Thuê công việc thành công!');
+      let action = getHiredJobsListAction();
+      dispatch(action);
+    })
+    promise.catch((error) => {
+      toast.error(error.response.data.content);
+    })
+  }
 
   const getJobDetail = () => {
     let action = getJobDetailAction(jobid);
@@ -164,7 +190,7 @@ export default function Detail() {
                 <h4><Rate tooltips={desc} onChange={setValue} value={value} /> <span>Rating</span></h4>
               </div>
               <form>
-                <textarea className="comment-form"  required id cols={100} rows={5} defaultValue={""} />
+                <textarea className="comment-form" required id cols={100} rows={5} defaultValue={""} />
                 <p className="comment-submit mt-2">Comment</p>
               </form>
 
@@ -201,7 +227,13 @@ export default function Detail() {
                     <p><CheckOutlined className='text-success mr-2' style={{ verticalAlign: '2px' }} /><span>Good fearture</span></p>
                     <p><CheckOutlined className='text-success mr-2' style={{ verticalAlign: '2px' }} /><span>Good fearture</span></p>
                   </div>
-                  <button type="button" className="btn-option">Continue (US${jobDetail.congViec.giaTien})</button>
+                  <button type="button" onClick={() => {
+                    if (userLogin) {
+                      hireJob()
+                    } else
+                      props.history.push("/signin");
+
+                  }} className="btn-option">Continue (US${jobDetail.congViec.giaTien})</button>
                   <p className="compare-option">Compare Packages</p>
                 </div>
 

@@ -1,6 +1,6 @@
 import { quanLyNguoiDung } from "../../services/QuanLyNguoiDungService"
 import { ACCESS_TOKEN, USER_FIVER } from "../../util/settings/config"
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { history } from "../../App";
 
 export const signInAction = (account) => {

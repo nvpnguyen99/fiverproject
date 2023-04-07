@@ -1,7 +1,56 @@
-import React from 'react'
-import { EditOutlined,FacebookOutlined,GoogleOutlined,GithubOutlined,TwitterOutlined,PlusOutlined } from '@ant-design/icons';
+import React, { useEffect } from 'react'
+import { EditOutlined, FacebookOutlined, GoogleOutlined, GithubOutlined, TwitterOutlined, PlusOutlined } from '@ant-design/icons';
+import { getHiredJobsListAction } from '../../redux/actions/hireJobAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { quanLyThueCongViecService } from '../../services/QuanLyThueCongViecService';
+import { toast } from 'react-hot-toast';
 
-export default function Profile() {
+export default function Profile(props) {
+
+    let dispatch = useDispatch();
+    let { jobHiredList } = useSelector(state => state.hireJobsReducer);
+    let {userLogin} = useSelector(state => state.userReducer)
+
+    useEffect(() => {
+        let action = getHiredJobsListAction();
+        dispatch(action);
+    }, [])
+
+    const renderJobHiredList = () => {
+        return jobHiredList.map((jobHired) => {
+            let{id, danhGia, tenCongViec, giaTien, hinhAnh, moTaNgan, saoCongViec} = jobHired.congViec
+            return <div style={{height: "max-content"}} className="profile-right-content mt-4">
+                <div className="seller d-flex">
+                    <div className="seller-img mr-4 mt-1">
+                        <img src={hinhAnh} alt="" width="100px"/>
+                    </div>
+                    <div className="seller-info">
+                        <h5>{tenCongViec}</h5>
+                        <p>{moTaNgan}</p>
+                        <p><span style={{ color: "#ffbe5b" }}><i className="fa-solid fa-star"></i> {saoCongViec} </span>({danhGia})</p>
+                        <div className='d-flex float-right'>
+                            <button onClick={() => {
+                                props.history.push(`/detail/${id}`);
+                            }} className='profile-right-btn mr-2'>View detail</button>
+                            <button onClick={() => {
+                                let promise = quanLyThueCongViecService.xoaThueCongViec(jobHired.id)
+                                promise.then((result) => { 
+                                    toast.success("Xoá công việc thành công!")
+                                    let action = getHiredJobsListAction();
+                                    dispatch(action);
+                                 })
+                                 promise.catch((error) => { 
+                                    console.log(error)
+                                  })
+                            }} style={{ backgroundColor: '#e14c4c' }} className='profile-right-btn'>Del</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        })
+    }
+
     return (
         <section className="container" style={{ paddingTop: '150px', paddingBottom: '60px' }}>
             <div className="profile d-flex w-100">
@@ -23,7 +72,7 @@ export default function Profile() {
                                 <p className=" card-text my-0 d-flex text-white font-weight-bold text-center justify-content-center align-items-center">USER</p>
                             </div>
                             <div className="card-label text-center">
-                                <h5><b>Username</b></h5>
+                                <h5><b>{userLogin.email}</b></h5>
                             </div>
                             <div className="btn-edit text-center" data-toggle="modal"
                                 data-target="#exampleModal">
@@ -143,15 +192,15 @@ export default function Profile() {
                             </div>
                             <div className="location d-flex justify-content-between">
                                 <div className="location_left"><span> Name</span></div>
-                                <div className="location_right">Abc</div>
+                                <div className="location_right">{userLogin.name}</div>
                             </div>
                             <div className="location d-flex justify-content-between">
                                 <div className="location_left"><span> Phone</span></div>
-                                <div className="location_right">0123234456</div>
+                                <div className="location_right">{userLogin.phone}</div>
                             </div>
                             <div className="location d-flex justify-content-between">
                                 <div className="location_left"><span> Birth day</span></div>
-                                <div className="location_right">01-01-2000</div>
+                                <div className="location_right">{userLogin.birthday}</div>
                             </div>
                             <div className="border-bottom"></div>
                         </div>
@@ -205,23 +254,8 @@ export default function Profile() {
                         <div className="profile-right-text mr-5"><span> It seems that you don't have any active Gigs.</span></div>
                         <div className="profile-right-btn text-center"><p>Create a new Gig</p></div>
                     </div>
-                    <div className="profile-right-content mt-4">
-                        <div className="seller d-flex">
-                            <div className="seller-img mr-5">
-                                <img src="https://fiverrnew.cybersoft.edu.vn/images/cv13.jpg" alt="" className='img-fluid' />
-                            </div>
-                            <div className="seller-info">
-                                <h5>I will do linkedin marketing and manage ads campaign</h5>
-                                <p>LinkedIn page US$10 LinkedIn business page create and setup 3 Days Delivery Target audience research Automated feed ads (DPA) Ads analytical report 3 days</p>
-                                <p><span style={{ color: "#ffbe5b" }}><i className="fa-solid fa-star"></i> 4 </span>(12)</p>
-                                <div className='d-flex float-right'>
-                                    <button className='profile-right-btn mr-2'>View detail</button>
-                                    <button style={{ backgroundColor: '#e14c4c' }} className='profile-right-btn'>Del</button>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
+                    {renderJobHiredList()}
 
 
 

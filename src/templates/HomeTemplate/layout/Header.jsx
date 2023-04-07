@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { USER_FIVER } from '../../../util/settings/config';
 import { userReducer } from '../../../redux/reducers/userReducer';
 import { signOutAction } from '../../../redux/actions/userAction';
+import { getHiredJobsListAction } from '../../../redux/actions/hireJobAction';
 const { Search } = Input;
 
 
@@ -20,7 +21,9 @@ export default function Header(props) {
   let [transparentClassHeader, setTransparentClassHeader] = useState("")
   let { isHomePage } = useSelector(state => state.homeReducer)
   let {userLogin} = useSelector(state => state.userReducer)
+  let {jobHiredList} = useSelector(state => state.hireJobsReducer)
   let dispatch = useDispatch();
+
 
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent)
@@ -31,6 +34,8 @@ export default function Header(props) {
       .catch((error) => {
         console.log(error)
       })
+      let action = getHiredJobsListAction();
+      dispatch(action);
   }, [])
 
   useEffect(() => {
@@ -104,7 +109,7 @@ export default function Header(props) {
     if (userLogin) {
       return <>
         <li>
-          <Link className="nav-link" to="/profile">{userLogin.name}</Link>
+          <Link className="nav-link" to="/profile">{userLogin.name} <span className='countJobs'>{jobHiredList.length}</span></Link>
         </li>
         <li>
           <Link className="nav-link" to="/signin"><span onClick={() => {

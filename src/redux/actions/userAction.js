@@ -38,3 +38,10 @@ export const signOutAction = () => {
         type: "SIGN_OUT"
     }
 }
+
+export const getProfileAction = (user) => {
+    return {
+        type: "GET_PROFILE",
+        user
+    }
+}

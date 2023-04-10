@@ -230,8 +230,11 @@ export default function Detail(props) {
                   <button type="button" onClick={() => {
                     if (userLogin) {
                       hireJob()
-                    } else
+                    } else {
                       props.history.push("/signin");
+                      toast.error("Vui lòng đăng nhập trước khi thuê công việc");
+                    }
+                 
 
                   }} className="btn-option">Continue (US${jobDetail.congViec.giaTien})</button>
                   <p className="compare-option">Compare Packages</p>

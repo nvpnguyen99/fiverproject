@@ -34,8 +34,7 @@ export default function Header(props) {
       .catch((error) => {
         console.log(error)
       })
-      let action = getHiredJobsListAction();
-      dispatch(action);
+
   }, [])
 
   useEffect(() => {
@@ -46,6 +45,13 @@ export default function Header(props) {
     }
 
   }, [isScrollY, isHomePage])
+
+    useEffect(() => { 
+      if(localStorage.getItem(USER_FIVER)){
+        let action = getHiredJobsListAction();
+        dispatch(action);
+      }
+     },[userLogin])
 
   const listenScrollEvent = (e) => {
     if (window.scrollY > 0) {

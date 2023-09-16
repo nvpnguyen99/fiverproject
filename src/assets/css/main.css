@@ -77,6 +77,17 @@ header .navbar .signIn .nav-reg:hover {
   color: white;
   background: #1dbf73;
 }
+header .countJobs {
+  text-align: center;
+  background-color: #ff6861;
+  font-size: 14px;
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+}
 
 .menuLoaiCongViec {
   border-top: 1px solid #e4e5e7;
@@ -152,6 +163,9 @@ header .navbar .signIn .nav-reg:hover {
   background-repeat: no-repeat;
   background-position: center;
 }
+.transparentHeader .navbar .countJobs {
+  display: none;
+}
 
 footer {
   padding: 60px 0;
@@ -208,8 +222,7 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
 .homePage .homePage__carousel .homePage__carouselSlider img {
   width: 100vw;
   height: 100vh;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .homePage .homePage__carouselContent {
   position: absolute;
@@ -277,8 +290,7 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
   padding: 10px;
 }
 .homePage .homePage__serviceSlider .slick-slide img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .homePage .homePage__serviceSlider .slick-arrow::before {
   color: #b5b6ba;
@@ -322,6 +334,7 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
   left: 50%;
   position: absolute;
   top: 40%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 80px;
   z-index: 1;
@@ -333,8 +346,7 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
   padding: 10px;
 }
 .homePage .homePage__testimonial .slick-slide img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .homePage .homePage__testimonial .slick-arrow::before {
   color: #b5b6ba;
@@ -354,6 +366,7 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
   left: 50%;
   position: absolute;
   top: 40%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 80px;
   z-index: 1;
@@ -587,7 +600,7 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
   height: 200px;
 }
 .profile .profile-right .profile-right-content .seller .seller-img img {
-  width: 400px;
+  width: 260px;
 }
 .profile .profile-right .profile-right-text {
   color: #404145;
@@ -698,4 +711,22 @@ footer .footer__bottomContent .footer__info .footer__buttonInfo .footer__person 
 }
 .detail .ant-progress-text::after {
   content: "Hoàn thành";
+}
+.detail .comment-form {
+  border-radius: 5px;
+  padding: 10px 12px;
+  width: 100%;
+}
+.detail .comment-submit {
+  background-color: #1dbf73;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 100%;
+  padding: 12px 24px;
+  text-align: center;
+  transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+  width: 15%;
 }/*# sourceMappingURL=main.css.map */

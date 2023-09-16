@@ -25,6 +25,10 @@ export const userReducer = (state = initialState, action) => {
                 console.log(state);
             }
         return{...state}
+        
+        case "GET_PROFILE":
+            state.userLogin = action.user;
+        return {...state}
 
         default:
             return state
